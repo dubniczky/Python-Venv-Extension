@@ -1,13 +1,33 @@
 #!/bin/bash
 
 # Load environment variables
-export $(cat .env | xargs)
+#export $(cat .env | xargs)
+source .env
+
+# Colored echo
+venv.echoc()
+{
+    RED="\033[0;31m"
+    GREEN="\033[0;32m"
+    YELLOW="\033[1;33m"
+    
+    NONE="\033[0m" # No color
+
+    printf "${!1}${2}${NONE}"
+}
+
+# Colored echo with new line
+venv.echocl()
+{
+    echoc "$1" "$2\n"
+}
 
 # Load virtual environment script
 venv.load()
 {
     # [1/5] Create virtual environment
-    echo "[1/5] Creating virtual environment... ($VENV_NAME/)"
+    venv.echoc "GREEN" "[1/5] "
+    echo "Creating virtual environment... ($VENV_NAME/)"
     # Check python installation with multiple commands
     if python --version > /dev/null; then # python
         echo "Python found with command: \"python\""
@@ -25,40 +45,45 @@ venv.load()
         echo "Using version: $version"
         py -m venv "$VENV_NAME"
     else
-        echo "Error: Python is not installed."
+        venv.echocl "RED" "Error: Python is not installed."
         exit 1
     fi
 
 
     # [2/5] Activate environment
-    echo "[2/5] Activating environment..."
+    venv.echoc "GREEN" "[2/5] "
+    echo "Activating environment..."
     source $VENV_NAME/bin/activate
 
 
     # [3/5] Install packages
-    echo "[3/5] Installing packages... (/$VENV_DEPS_NAME)"
+    venv.echoc "GREEN" "[3/5] "
+    echo "Installing packages... (/$VENV_DEPS_NAME)"
     # Check pip installation
     if pip --version > /dev/null; then
+        echo "Found pip"
         if [ "$VENV_PRIORITIZE_LOCK" = "true" ] && test -f "$VENV_LOCK_NAME"; then
             echo "Installing dependencies from lock file..."
-            pip install -r $VENV_LOCK_NAME
+            pip install -r $VENV_LOCK_NAME > /dev/null
         else
             echo "Installing dependencies from requirements file..."
-            pip install -r $VENV_DEPS_NAME
+            pip install -r $VENV_DEPS_NAME > /dev/null
         fi
     else
-        echo "Error: Pip is not installed."
+        venv.echocl "RED" "Error: Pip is not installed."
         exit 2
     fi
     
 
     # [4/5] Save used package versions
-    echo "[4/5] Creating lock file... (/$VENV_LOCK_NAME)"
+    venv.echoc "GREEN" "[4/5] "
+    echo "Creating lock file... (/$VENV_LOCK_NAME)"
     pip freeze > $VENV_LOCK_NAME
 
 
     # [5/5] Save used package versions
-    echo "[5/5] Virtual environment ready. ($VENV_NAME/)"
+    venv.echoc "GREEN" "[5/5] "
+    echo "Virtual environment ready. ($VENV_NAME/)"
 }
 
 venv()
