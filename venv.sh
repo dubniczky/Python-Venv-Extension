@@ -53,7 +53,7 @@ venv.load()
     # [2/5] Activate environment
     venv.echoc "GREEN" "[2/5] "
     echo "Activating environment..."
-    source $VENV_NAME/bin/activate
+    venv.activate;
 
 
     # [3/5] Install packages
