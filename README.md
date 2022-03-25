@@ -8,6 +8,16 @@ An extension to the Linux terminal to easily manage python virtual environments.
 2. Open repository in terminal
 3. Run: `./install.sh`
 
+Or copy and run:
+
+```bash
+git clone https://gitlab.com/richard-nagy/python-virtual-environment-terminal-extension &&
+cd python-virtual-environment-terminal-extension &&
+./install.sh &&
+cd .. &&
+rm -r python-virtual-environment-terminal-extension
+```
+
 ## Manual Installation
 
 1. Copy `.env` and `venv.sh` to `~/.venvconfig/` folder.
