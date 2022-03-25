@@ -19,7 +19,7 @@ venv.echoc()
 # Colored echo with new line
 venv.echocl()
 {
-    echoc "$1" "$2\n"
+    venv.echoc "$1" "$2\n"
 }
 
 # Load virtual environment script
