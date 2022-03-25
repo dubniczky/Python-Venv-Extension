@@ -34,9 +34,15 @@ venv.load()
     source $VENV_NAME/bin/activate
 
     # [3/5] Install packages
-    echo "[3/5] Installing packages..."
-    echo "${pwd}/$VENV_DEPS_NAME"
-    pip install -r $VENV_DEPS_NAME
+    echo "[3/5] Installing packages... (/$VENV_DEPS_NAME)"
+    # Check pip installation
+    if pip --version > /dev/null; then
+        pip install -r $VENV_DEPS_NAME
+    else
+        echo "Error: Pip is not installed."
+        exit 2
+    fi
+    
 
     # [4/5] Save used package versions
     echo "[4/5] Creating lock file..."
