@@ -7,8 +7,20 @@ export $(cat .env | xargs)
 venv.load()
 {
     # Create venv
-    echo "[1/5] Creating virtual environment... ($VENV_NAME)"
-    python -m venv "$VENV_NAME"
+    echo "[1/5] Creating virtual environment... ($VENV_NAME/)"
+    if python --version > /dev/null; then
+        echo "Using \"python\" command"
+        python -m venv "$VENV_NAME"
+    elif python3 --version > /dev/null; then
+        echo "Using \"python3\" command"
+        python3 -m venv "$VENV_NAME"
+    elif py --version > /dev/null; then
+        echo "Using \"py\" command"
+        py -m venv "$VENV_NAME"
+    else
+        echo "Error: Python is not installed."
+        exit 1
+    fi
 
     # Activate environment
     echo "[2/5] Activating environment..."
