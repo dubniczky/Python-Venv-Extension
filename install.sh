@@ -14,6 +14,7 @@ cp ./venv.sh ~/.venvconfig/venv.sh
 chmod +x ~/.venvconfig/venv.sh
 
 # Install into .bashrc
+cp ~/.bashrc ~/.bashrc.bkp
 sudo cat >> ~/.bashrc << EOF!
 
 # Python venv loading script
