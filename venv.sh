@@ -6,9 +6,7 @@ export $(cat .env | xargs)
 # Load virtual environment script
 venv.load()
 {
-    #
     # [1/5] Create virtual environment
-    #
     echo "[1/5] Creating virtual environment... ($VENV_NAME/)"
     # Check python installation with multiple commands
     if python --version > /dev/null; then # python
@@ -31,20 +29,21 @@ venv.load()
         exit 1
     fi
 
-    # Activate environment
+    # [2/5] Activate environment
     echo "[2/5] Activating environment..."
     source $VENV_NAME/bin/activate
 
-    # Install packages
+    # [3/5] Install packages
     echo "[3/5] Installing packages..."
     echo "${pwd}/$VENV_DEPS_NAME"
     pip install -r $VENV_DEPS_NAME
 
-    # Save used package versions
+    # [4/5] Save used package versions
     echo "[4/5] Creating lock file..."
     echo "${pwd}/$VENV_LOCK_NAME"
     pip freeze > $VENV_LOCK_NAME
 
+    # [5/5] Save used package versions
     echo "[5/5] Virtual environment ready."
     echo "${pwd}/$VENV_NAME"
 }
