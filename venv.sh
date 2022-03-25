@@ -105,9 +105,19 @@ venv.load()
 venv.install()
 {
     if [ "$1" = "lock" ]; then
-        pip install -r $VENV_LOCK_NAME
+        if [ -f "$VENV_LOCK_NAME" ]; then
+            pip install -r $VENV_LOCK_NAME
+        else
+            venv.echocl "RED" "Error: No lock file found ($VENV_LOCK_NAME)"
+            return 1
+        fi
     else
-        pip install -r $VENV_DEPS_NAME
+        if [ -f "$VENV_DEPS_NAME" ]; then
+            pip install -r $VENV_DEPS_NAME
+        else
+            venv.echocl "RED" "Error: No requirements file found ($VENV_DEPS_NAME)"
+            return 1
+        fi
     fi
 }
 
