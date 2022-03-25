@@ -88,11 +88,9 @@ venv.load()
 
 venv()
 {
-    if test "$1" = "load"
-    then
+    if [ "$1" = "load" ]; then
         venv.load;
-    elif test "$1" = "exit"
-    then
+    elif [ "$1" = "exit" ]; then
         deactivate;
     else
         venv.load;
