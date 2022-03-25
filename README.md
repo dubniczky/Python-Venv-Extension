@@ -1,6 +1,6 @@
 # Python Virtual Environment Terminal Extension
 
-An extension to the Linux terminal to easily create use python virtual environments.
+An extension to the Linux terminal to easily manage python virtual environments.
 
 ## Installation
 
