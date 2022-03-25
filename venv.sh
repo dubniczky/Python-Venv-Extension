@@ -1,9 +1,5 @@
 #!/bin/bash
 
-# Load environment variables
-#export $(cat .env | xargs)
-source .env
-
 # Colored echo
 venv.echoc()
 {
@@ -21,6 +17,19 @@ venv.echocl()
 {
     venv.echoc "$1" "$2\n"
 }
+
+
+# Load environment variables
+# If file does not exist, we assume it's already loaded.
+export VENV_CONFIG="~/.venvconfig/.env"
+if [ -f "$VENV_CONFIG" ]; then
+    #source "$VENV_CONFIG"
+    export $(cat $VENV_CONFIG | grep -v '^#\|^$' | xargs)
+elif [ -f ".env" ]; then
+    #source .env
+    export $(cat .env | grep -v '^#\|^$' | xargs)
+fi
+
 
 # Load virtual environment script
 venv.load()
