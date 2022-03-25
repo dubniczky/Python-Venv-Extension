@@ -69,6 +69,6 @@ venv()
     then
         deactivate;
     else
-        echo "Unknown command. Use load or exit"
+        venv.load;
     fi
 }
