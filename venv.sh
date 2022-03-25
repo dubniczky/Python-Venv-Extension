@@ -37,7 +37,13 @@ venv.load()
     echo "[3/5] Installing packages... (/$VENV_DEPS_NAME)"
     # Check pip installation
     if pip --version > /dev/null; then
-        pip install -r $VENV_DEPS_NAME
+        if [ "$VENV_PRIORITIZE_LOCK" = "true" ] && test -f "$VENV_LOCK_NAME"; then
+            echo "Installing dependencies from lock file..."
+            pip install -r $VENV_LOCK_NAME
+        else
+            echo "Installing dependencies from requirements file..."
+            pip install -r $VENV_DEPS_NAME
+        fi
     else
         echo "Error: Pip is not installed."
         exit 2
