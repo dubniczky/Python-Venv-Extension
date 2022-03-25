@@ -29,9 +29,11 @@ venv.load()
         exit 1
     fi
 
+
     # [2/5] Activate environment
     echo "[2/5] Activating environment..."
     source $VENV_NAME/bin/activate
+
 
     # [3/5] Install packages
     echo "[3/5] Installing packages... (/$VENV_DEPS_NAME)"
@@ -53,6 +55,7 @@ venv.load()
     # [4/5] Save used package versions
     echo "[4/5] Creating lock file... (/$VENV_LOCK_NAME)"
     pip freeze > $VENV_LOCK_NAME
+
 
     # [5/5] Save used package versions
     echo "[5/5] Virtual environment ready. ($VENV_NAME/)"
