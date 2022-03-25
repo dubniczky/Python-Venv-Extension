@@ -71,7 +71,7 @@ venv.load()
     # Check pip installation
     if pip --version > /dev/null; then
         echo "Found pip"
-        if [ "$VENV_PRIORITIZE_LOCK" = "true" ] && test -f "$VENV_LOCK_NAME"; then
+        if [ "$VENV_PRIORITIZE_LOCK" = "true" ] && [ -f "$VENV_LOCK_NAME" ] && [ -s "$VENV_LOCK_NAME" ]; then
             echo "Installing dependencies from lock file..."
             pip install -r $VENV_LOCK_NAME
         else
