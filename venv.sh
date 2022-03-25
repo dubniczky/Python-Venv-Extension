@@ -46,7 +46,7 @@ venv.load()
         py -m venv "$VENV_NAME"
     else
         venv.echocl "RED" "Error: Python is not installed."
-        exit 1
+        return 1
     fi
 
 
@@ -71,7 +71,7 @@ venv.load()
         fi
     else
         venv.echocl "RED" "Error: Pip is not installed."
-        exit 2
+        return 1
     fi
     
 
@@ -104,7 +104,7 @@ venv.lock()
         echo "Lock file created: $VENV_LOCK_NAME"
     else
         venv.echocl "RED" "Error: Virtual environment is not activated."
-        exit 1
+        return 1
     fi
 }
 
