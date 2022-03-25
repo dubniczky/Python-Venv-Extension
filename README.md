@@ -32,5 +32,12 @@ source ~/.venvconfig/venv.sh
 
 ## Usage
 
-- Load venv: `venv` or `venv load`
-- Exit venv: `venv exit`
+|Command|Effect|
+|---|---|
+|`venv`|Displays help listing all commands.|
+|`venv load`|Creates and activates a virtual environment, then installs packages.|
+|`venv exit`|Deactivate current virtual environment.|
+|`venv lock`|Save currently installed packages to lock file.|
+|`venv install`|Install packages from requirements file.|
+|`venv install lock`|Install packages from lock file.|
+|`venv activate`|Activate virtual environment in current directory (recommended to use load).|
