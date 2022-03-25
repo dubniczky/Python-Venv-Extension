@@ -86,9 +86,14 @@ venv.load()
     echo "Virtual environment ready. ($VENV_NAME/)"
 }
 
+# Install dependencies
 venv.install()
 {
-    pip install -r $VENV_DEPS_NAME
+    if [ "$1" = "lock" ]; then
+        pip install -r $VENV_LOCK_NAME
+    else
+        pip install -r $VENV_DEPS_NAME
+    fi
 }
 
 venv()
@@ -98,7 +103,7 @@ venv()
     elif [ "$1" = "exit" ]; then
         deactivate;
     elif [ "$1" = "install" ]; then
-        venv.install;
+        venv.install $2;
     else
         venv.load;
     fi
