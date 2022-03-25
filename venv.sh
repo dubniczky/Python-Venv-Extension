@@ -6,16 +6,19 @@ export $(cat .env | xargs)
 # Load virtual environment script
 venv.load()
 {
-    # Create venv
+    #
+    # [1/5] Create virtual environment
+    #
     echo "[1/5] Creating virtual environment... ($VENV_NAME/)"
+    # Check python installation with multiple commands
     if python --version > /dev/null; then
-        echo "Using \"python\" command"
+        echo "Python found with command: \"python\""
         python -m venv "$VENV_NAME"
     elif python3 --version > /dev/null; then
-        echo "Using \"python3\" command"
+        echo "Python found with command: \"python3\""
         python3 -m venv "$VENV_NAME"
     elif py --version > /dev/null; then
-        echo "Using \"py\" command"
+        echo "Python found with command: \"py\""
         py -m venv "$VENV_NAME"
     else
         echo "Error: Python is not installed."
