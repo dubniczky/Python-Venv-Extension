@@ -51,13 +51,11 @@ venv.load()
     
 
     # [4/5] Save used package versions
-    echo "[4/5] Creating lock file..."
-    echo "${pwd}/$VENV_LOCK_NAME"
+    echo "[4/5] Creating lock file... (/$VENV_LOCK_NAME)"
     pip freeze > $VENV_LOCK_NAME
 
     # [5/5] Save used package versions
-    echo "[5/5] Virtual environment ready."
-    echo "${pwd}/$VENV_NAME"
+    echo "[5/5] Virtual environment ready. ($VENV_NAME/)"
 }
 
 venv()
