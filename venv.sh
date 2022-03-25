@@ -11,14 +11,20 @@ venv.load()
     #
     echo "[1/5] Creating virtual environment... ($VENV_NAME/)"
     # Check python installation with multiple commands
-    if python --version > /dev/null; then
+    if python --version > /dev/null; then # python
         echo "Python found with command: \"python\""
+        version=`python --version | cut -c 8-`
+        echo "Using version: $version"
         python -m venv "$VENV_NAME"
-    elif python3 --version > /dev/null; then
+    elif python3 --version > /dev/null; then # python3
         echo "Python found with command: \"python3\""
+        version=`python3 --version | cut -c 8-`
+        echo "Using version: $version"
         python3 -m venv "$VENV_NAME"
-    elif py --version > /dev/null; then
+    elif py --version > /dev/null; then # py
         echo "Python found with command: \"py\""
+        version=`py --version | cut -c 8-`
+        echo "Using version: $version"
         py -m venv "$VENV_NAME"
     else
         echo "Error: Python is not installed."
