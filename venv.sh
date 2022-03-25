@@ -86,12 +86,25 @@ venv.load()
     echo "Virtual environment ready. ($VENV_NAME/)"
 }
 
+venv.install()
+{
+    result=`pip install -r $VENV_DEPS_NAME`;
+    if [ $? -eq 0 ]; then
+        echo "Packages installed."
+    else
+        echo "Error while installing packages."
+    fi
+    echo "$result" >> pip_error.log
+}
+
 venv()
 {
     if [ "$1" = "load" ]; then
         venv.load;
     elif [ "$1" = "exit" ]; then
         deactivate;
+    elif [ "$1" = "install" ]; then
+        venv.install;
     else
         venv.load;
     fi
