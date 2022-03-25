@@ -14,6 +14,11 @@ cp ./venv.sh ~/.venvconfig/venv.sh
 chmod +x ~/.venvconfig/venv.sh
 
 # Install into .bashrc
+if grep -q "source ~/.venvconfig/venv.sh" ~/.bashrc; then
+    echo "Script already installed into bashrc."
+    exit
+fi
+
 cp ~/.bashrc ~/.bashrc.bkp
 sudo cat >> ~/.bashrc << EOF!
 
