@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# Load environment variables
+export $(cat .env | xargs)
+
+# Load virtual environment script
 venv.load()
 {
     # Create venv
