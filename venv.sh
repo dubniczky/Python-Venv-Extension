@@ -78,7 +78,7 @@ venv.load()
     # [4/5] Save used package versions
     venv.echoc "GREEN" "[4/5] "
     echo "Creating lock file... (/$VENV_LOCK_NAME)"
-    pip freeze > $VENV_LOCK_NAME
+    venv.lock
 
 
     # [5/5] Save used package versions
@@ -96,6 +96,18 @@ venv.install()
     fi
 }
 
+# Create dependency lock file
+venv.lock()
+{
+    if [[ -v VIRTUAL_ENV ]]; then
+        pip freeze > $VENV_LOCK_NAME
+        echo "Lock file created: $VENV_LOCK_NAME"
+    else
+        venv.echocl "RED" "Error: Virtual environment is not activated."
+        exit 1
+    fi
+}
+
 # Main venv command
 venv()
 {
@@ -105,6 +117,8 @@ venv()
         deactivate;
     elif [ "$1" = "install" ]; then
         venv.install $2;
+    elif [ "$1" = "lock" ]; then
+        venv.lock;
     else
         venv.load;
     fi
