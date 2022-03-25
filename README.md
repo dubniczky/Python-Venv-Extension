@@ -7,3 +7,8 @@ An extension to the Linux terminal to easily create use python virtual environme
 1. Download repository
 2. Open repository in terminal
 3. Run: `./install.sh`
+
+## Usage
+
+- Load venv: `venv` or `venv load`
+- Exit venv: `venv exit`
