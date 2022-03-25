@@ -64,10 +64,10 @@ venv.load()
         echo "Found pip"
         if [ "$VENV_PRIORITIZE_LOCK" = "true" ] && test -f "$VENV_LOCK_NAME"; then
             echo "Installing dependencies from lock file..."
-            pip install -r $VENV_LOCK_NAME > /dev/null
+            pip install -r $VENV_LOCK_NAME
         else
             echo "Installing dependencies from requirements file..."
-            pip install -r $VENV_DEPS_NAME > /dev/null
+            pip install -r $VENV_DEPS_NAME
         fi
     else
         venv.echocl "RED" "Error: Pip is not installed."
@@ -88,13 +88,7 @@ venv.load()
 
 venv.install()
 {
-    result=`pip install -r $VENV_DEPS_NAME`;
-    if [ $? -eq 0 ]; then
-        echo "Packages installed."
-    else
-        echo "Error while installing packages."
-    fi
-    echo "$result" >> pip_error.log
+    pip install -r $VENV_DEPS_NAME
 }
 
 venv()
