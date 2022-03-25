@@ -108,6 +108,17 @@ venv.lock()
     fi
 }
 
+# Activate current virtual environment
+venv.activate()
+{
+    if [ -f "$VENV_NAME/bin/activate" ]; then
+        source $VENV_NAME/bin/activate
+    else
+        venv.echocl "RED" "Error: Could not find virtual environment.";
+        return 1;
+    fi
+}
+
 # Main venv command
 venv()
 {
@@ -119,6 +130,8 @@ venv()
         venv.install $2;
     elif [ "$1" = "lock" ]; then
         venv.lock;
+    elif [ "$1" = "activate" ]; then
+        venv.activate;
     else
         venv.load;
     fi
