@@ -66,8 +66,14 @@ venv.load()
             echo "Installing dependencies from lock file..."
             pip install -r $VENV_LOCK_NAME
         else
-            echo "Installing dependencies from requirements file..."
-            pip install -r $VENV_DEPS_NAME
+            if [ -f "$VENV_DEPS_NAME" ]; then
+                echo "Installing dependencies from requirements file..."
+                pip install -r $VENV_DEPS_NAME
+            else
+                venv.echocl "YELLOW" "No requirements file found, skipping install."
+                echo "Created requirements file: $VENV_DEPS_NAME"
+                touch "$VENV_DEPS_NAME"
+            fi
         fi
     else
         venv.echocl "RED" "Error: Pip is not installed."
