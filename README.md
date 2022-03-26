@@ -42,3 +42,4 @@ source ~/.venvconfig/venv.sh
 |`venv install lock`|Install packages from lock file.|
 |`venv activate`|Activate virtual environment in current directory (recommended to use load).|
 |`venv add [name]`|Install and add package to requirements and lock.|
+|`venv run`|Runs current package main python file.|
