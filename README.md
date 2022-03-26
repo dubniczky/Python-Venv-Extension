@@ -41,3 +41,4 @@ source ~/.venvconfig/venv.sh
 |`venv install`|Install packages from requirements file.|
 |`venv install lock`|Install packages from lock file.|
 |`venv activate`|Activate virtual environment in current directory (recommended to use load).|
+|`venv add [name]`|Install and add package to requirements and lock.|
