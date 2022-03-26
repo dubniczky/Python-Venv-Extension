@@ -191,16 +191,32 @@ venv.add()
     return 0
 }
 
+# Run the package
+venv.run()
+{
+    if [ -f "__main__.py" ]; then
+        python .
+    elif [ -f "main.py" ]; then
+        python main.py
+    else
+        echo "No runnable python file found."
+        return 1
+    fi
+
+    return 0
+}
+
 venv.help()
 {
     echo "   help - Displays help listing all commands."
     echo "   load - Creates and activates a virtual environment, then installs packages."
     echo "   exit - Deactivate current virtual environment."
-    echo "   lock - Save currently installed packages to lock file."
     echo "   install - Install packages from requirements file."
     echo "   install lock - Install packages from lock file."
     echo "   activate - Activate virtual environment in current directory (recommended to use load)."
     echo "   add [name] - Install and add package to requirements and lock."
+    echo "   run - Runs current package main python file."
+    echo "   lock - Save currently installed packages to lock file."
 }
 
 # Main venv command
@@ -220,6 +236,8 @@ venv()
         venv.add $2;
     elif [ "$1" = "help" ]; then
         venv.help;
+    elif [ "$1" = "run" ]; then
+        venv.run;
     else
         venv.help;
     fi
