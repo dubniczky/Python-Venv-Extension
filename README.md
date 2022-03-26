@@ -34,7 +34,7 @@ source ~/.venvconfig/venv.sh
 
 |Command|Effect|
 |---|---|
-|`venv`|Displays help listing all commands.|
+|`venv`, `venv help`|Displays help listing all commands.|
 |`venv load`|Creates and activates a virtual environment, then installs packages.|
 |`venv exit`|Deactivate current virtual environment.|
 |`venv lock`|Save currently installed packages to lock file.|
