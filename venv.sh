@@ -145,6 +145,52 @@ venv.activate()
     fi
 }
 
+# Add a package to dependiencies
+venv.add()
+{
+    # Check if inside virtual environment
+    if ! [[ -v VIRTUAL_ENV ]]; then
+        echo "Not in virtual environment."
+        return 1
+    fi
+
+    # Check if package name is not empty
+    if [ -z $1 ]; then
+        echo "Please specify a package name."
+        return 1
+    fi
+
+    # Check if already added as dependency
+    if grep -q ^$1$ "$VENV_DEPS_NAME"; then
+        echo "Package already added as dependency."
+        return 1
+    fi
+
+    # Try to install using pip
+    pip install "$1"
+    if [ $? != 0 ]; then
+        echo "Could not find package, not added to requirements: '$1'"
+        return 1
+    fi
+
+    # Add to dependencies
+    if [[ -s "$VENV_DEPS_NAME" && -z "$(tail -c 1 "$VENV_DEPS_NAME")" ]]; then
+        # If last line is empty
+        echo "$1" >> "$VENV_DEPS_NAME"
+    else
+        # If last line is not empty
+        echo "" >> "$VENV_DEPS_NAME"
+        echo "$1" >> "$VENV_DEPS_NAME"
+    fi
+    echo "Added to requirements file: $VENV_DEPS_NAME"
+    
+    # Update lock file
+    pip freeze > $VENV_LOCK_NAME
+    echo "Updated lock file: $VENV_LOCK_NAME"
+
+    return 0
+}
+
 # Main venv command
 venv()
 {
@@ -158,6 +204,8 @@ venv()
         venv.lock;
     elif [ "$1" = "activate" ]; then
         venv.activate;
+    elif [ "$1" = "add" ]; then
+        venv.add $2;
     else
         venv.load;
     fi
