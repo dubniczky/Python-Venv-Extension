@@ -11,7 +11,7 @@ An extension to the Linux terminal to easily manage python virtual environments.
 Or copy and run:
 
 ```bash
-git clone https://gitlab.com/richard-nagy/python-venv-terminal-extension &&
+git clone https://gitlab.com/richardnagy/python-venv-terminal-extension &&
 cd python-virtual-environment-terminal-extension &&
 ./install.sh &&
 cd .. &&
