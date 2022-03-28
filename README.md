@@ -11,11 +11,11 @@ An extension to the Linux terminal to easily manage python virtual environments.
 Or copy and run:
 
 ```bash
-git clone https://gitlab.com/richardnagy/python-venv-terminal-extension &&
-cd python-virtual-environment-terminal-extension &&
+git clone https://gitlab.com/richardnagy/python-venv-terminal-extension.git/ &&
+cd python-venv-terminal-extension &&
 ./install.sh &&
 cd .. &&
-rm -r python-virtual-environment-terminal-extension
+rm -r python-venv-terminal-extension
 ```
 
 > ⚠️ You need to restart your terminal for the script to load. You can just type `bash`.
