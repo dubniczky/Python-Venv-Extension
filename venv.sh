@@ -1,5 +1,10 @@
 #!/bin/bash
 
+# Python Virtual Environment Terminal Extension
+# by Richard Antal
+# https://gitlab.com/richardnagy/python-venv-terminal-extension
+# DO NOT MODIFY! configuration in: .env
+
 # Colored echo
 venv.echoc()
 {
