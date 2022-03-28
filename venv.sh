@@ -21,7 +21,7 @@ venv.echocl()
 
 # Load environment variables
 # If file does not exist, we assume it's already loaded.
-export VENV_CONFIG="~/.venvconfig/.env"
+export VENV_CONFIG="$HOME/.venvconfig/.env"
 if [ -f "$VENV_CONFIG" ]; then
     #source "$VENV_CONFIG"
     export $(cat $VENV_CONFIG | grep -v '^#\|^$' | xargs)
