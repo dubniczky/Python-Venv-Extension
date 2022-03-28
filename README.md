@@ -18,6 +18,8 @@ cd .. &&
 rm -r python-virtual-environment-terminal-extension
 ```
 
+> ⚠️ You need to restart your terminal for the script to load. You can just type `bash`.
+
 ## Manual Installation
 
 1. Copy `.env` and `venv.sh` to `~/.venvconfig/` folder.
@@ -27,8 +29,11 @@ rm -r python-virtual-environment-terminal-extension
 source ~/.venvconfig/venv.sh
 ```
 
-> **Why does it have to be installed like this?**
-> This script adds new functions to your terminal, so it has to run when your bash runs.
+> ❔ **Why does it have to be installed like this?**
+>
+> This script adds new functions to your terminal by modifying the currently running instance.
+> Actvating a virtual environment works the same way, so it has to be loaded every time.
+> Adding it to bashrc file will automate the loading of the script.
 
 ## Usage
 
