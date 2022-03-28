@@ -51,3 +51,8 @@ source ~/.venvconfig/venv.sh
 |`venv activate`|Activate virtual environment in current directory (recommended to use load).|
 |`venv add [name]`|Install and add package to requirements and lock.|
 |`venv run`|Runs current package main python file.|
+
+
+## Articles
+
+This project was referenced in [this](https://richard-nagy.medium.com/using-python-virtual-environment-comfortably-7d0348597829) medium article.
