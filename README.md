@@ -23,11 +23,14 @@ rm -r python-virtual-environment-terminal-extension
 ## Manual Installation
 
 1. Copy `.env` and `venv.sh` to `~/.venvconfig/` folder.
-2. To auto run script on bash start, add the following line to `~/.bashrc`
+2. To auto run script on bash start, add the following line to `~/.bashrc`:
 
 ```bash
 source ~/.venvconfig/venv.sh
 ```
+
+3. Now you can delete the repository.
+4. Restart your terminal.
 
 > ❔ **Why does it have to be installed like this?**
 >
