@@ -1,6 +1,6 @@
 # Root warning
 if [ "$(id -u)" -eq 0 ]; then
-    echo "Info: Do not use root, unless you want to use the script with the root user."
+    echo "Warning: Installing to root. This is not a problem, but you will only be able to run venv from the root user or by using sudo."
 fi
 
 # Create folder in current user home
