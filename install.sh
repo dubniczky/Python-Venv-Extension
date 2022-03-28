@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # Root warning
 if [ "$(id -u)" -eq 0 ]; then
     echo "Warning: Installing to root. This is not a problem, but you will only be able to run venv from the root user or by using sudo."
