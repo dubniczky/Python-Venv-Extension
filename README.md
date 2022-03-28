@@ -13,9 +13,7 @@ Or copy and run:
 ```bash
 git clone https://gitlab.com/richardnagy/python-venv-terminal-extension.git/ &&
 cd python-venv-terminal-extension &&
-./install.sh &&
-cd .. &&
-rm -r python-venv-terminal-extension
+./install.sh
 ```
 
 > ⚠️ You need to restart your terminal for the script to load. You can just type `bash`.
