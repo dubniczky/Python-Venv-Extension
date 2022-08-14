@@ -28,4 +28,17 @@ sudo cat >> ~/.bashrc << EOF!
 source ~/.venvconfig/venv.sh
 EOF!
 
+# Install into .zshrc
+if grep -q "source ~/.venvconfig/venv.sh" ~/.zshrc; then
+    echo "Script already installed into zshrc."
+    exit
+fi
+
+cp ~/.zshrc ~/.zshrc.bkp
+sudo cat >> ~/.zshrc << EOF!
+
+# Python venv loading script
+source ~/.venvconfig/venv.sh
+EOF!
+
 echo "Script installed."
