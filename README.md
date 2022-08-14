@@ -2,10 +2,16 @@
 
 An extension to the Linux terminal to easily manage python virtual environments.
 
+## Support ❤️
+
+If you find the project useful, please consider supporting, or contributing.
+
+[!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/dubniczky)
+
 ## Installation
 
 1. Download repository
-2. Open repository in terminal
+2. Open in terminal
 3. Run: `./install.sh`
 
 Or copy and run:
@@ -21,7 +27,7 @@ cd python-venv-terminal-extension &&
 ## Manual Installation
 
 1. Copy `.env` and `venv.sh` to `~/.venvconfig/` folder.
-2. To auto run script on bash start, add the following line to `~/.bashrc`:
+2. To auto-run script on bash start, add the following line to `~/.bashrc`:
 
 ```bash
 source ~/.venvconfig/venv.sh
@@ -49,7 +55,6 @@ source ~/.venvconfig/venv.sh
 |`venv activate`|Activate virtual environment in current directory (recommended to use load).|
 |`venv add [name]`|Install and add package to requirements and lock.|
 |`venv run`|Runs current package main python file.|
-
 
 ## Articles
 
