@@ -2,12 +2,6 @@
 
 An extension to the Linux terminal to easily manage python virtual environments.
 
-## Support ❤️
-
-If you find the project useful, please consider supporting, or contributing.
-
-[!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/dubniczky)
-
 ## Installation
 
 1. Download repository
